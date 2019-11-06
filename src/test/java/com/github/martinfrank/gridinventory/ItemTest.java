@@ -23,7 +23,7 @@ public class ItemTest<I> {
 
     @Test
     public void fitInsideTest() {
-        RectangleContainer container = new RectangleContainer(10, 5);
+        RectangleContainer<I> container = new RectangleContainer<>(10, 5);
         RectangleItem<I> item = new RectangleItem<>(2, 2);
         GeoPoint location = new GeoPoint(0, 0);
         Assert.assertEquals(container.fitsInside(item, location), item.fitsInside(container, location));

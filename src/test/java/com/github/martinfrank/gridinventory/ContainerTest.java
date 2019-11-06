@@ -8,7 +8,7 @@ public class ContainerTest <I> {
 
     @Test
     public void itemOutsideContainerTest(){
-        RectangleContainer container = new RectangleContainer(10,5);
+        RectangleContainer<I> container = new RectangleContainer<>(10, 5);
         RectangleItem <I> item = new RectangleItem<>(1,2);
 
         Assert.assertFalse(container.fitsInside(item, new GeoPoint(-1,0)));
@@ -22,7 +22,7 @@ public class ContainerTest <I> {
 
     @Test
     public void intersectionTest(){
-        RectangleContainer container = new RectangleContainer(10,5);
+        RectangleContainer<I> container = new RectangleContainer<>(10, 5);
         RectangleItem <I> itemInside = new RectangleItem<>(2,2);
         RectangleItem <I> itemToAdd = new RectangleItem<>(2,2);
         container.add(itemInside, new GeoPoint(0,0));
@@ -38,7 +38,7 @@ public class ContainerTest <I> {
 
     @Test
     public void contentTest(){
-        RectangleContainer container = new RectangleContainer(10,5);
+        RectangleContainer<I> container = new RectangleContainer<>(10, 5);
         RectangleItem <I> first = new RectangleItem<>(2,2);
         container.add(first, new GeoPoint(0,0));
         Assert.assertTrue(container.getContent().contains(first));

@@ -4,6 +4,6 @@ public interface ItemHolder<I> {
 
     public I getItem();
 
-    public void setItem(I i);
+    public void setItem(I item);
 
 }

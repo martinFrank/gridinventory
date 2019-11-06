@@ -6,12 +6,12 @@ import org.junit.Test;
 
 import java.util.Collection;
 
-public class ItemTest {
+public class ItemTest<I> {
 
     @Test
     @SuppressWarnings("unchecked")
     public void rectangleTranslationTest(){
-        RectangleItem item = new RectangleItem(2,4);
+        RectangleItem<I> item = new RectangleItem(2, 4);
         GeoPoint location = new GeoPoint(2,2);
 
         Collection<GeoPoint> relativeShape = item.getRelativeShape(location);
@@ -19,6 +19,14 @@ public class ItemTest {
             GeoPoint translated = new GeoPoint(p.getX()+location.getX(), p.getY() + location.getY());
             Assert.assertTrue(relativeShape.contains(translated));
         }
+    }
+
+    @Test
+    public void fitInsideTest() {
+        RectangleContainer container = new RectangleContainer(10, 5);
+        RectangleItem<I> item = new RectangleItem<>(2, 2);
+        GeoPoint location = new GeoPoint(0, 0);
+        Assert.assertEquals(container.fitsInside(item, location), item.fitsInside(container, location));
     }
 
 }

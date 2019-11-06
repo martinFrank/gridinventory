@@ -7,6 +7,10 @@ import java.util.List;
 
 public class RectangleUtility {
 
+    private RectangleUtility() {
+        //hide constructor
+    }
+
     public static List<GeoPoint> createShape(int width, int height){
         List<GeoPoint> points = new ArrayList<>();
         for (int dy = 0; dy < height; dy ++){

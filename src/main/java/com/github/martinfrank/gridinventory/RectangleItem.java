@@ -5,7 +5,6 @@ import com.github.martinfrank.geolib.GeoPoint;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class RectangleItem<I> implements GridShape, ItemHolder<I> {
